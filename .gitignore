@@ -1,0 +1,29 @@
+# Django-specific files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+
+# Secret keys
+.secret_key
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+/static/
+
+# Database files
+*.db
+*.sqlite3
+
+# Development tools
+.vscode/
+*.idea/
+
+# Dependency directories
+venv/
+env/
+
