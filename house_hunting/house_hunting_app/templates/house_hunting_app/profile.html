@@ -1,0 +1,20 @@
+{% extends 'house_hunting_app/base.html' %}
+
+{% block links %}
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Category </a></li>
+
+
+{% endblock%}
+
+{% block logins %}
+<li><a href="{% url 'signup' %}">Profile</a></li>
+<li><a href="{% url 'login' %}"><i class="fa fa-user-o" aria-hidden="true"></i> Log Out</a></li>
+          
+{% endblock %}
+
+{% block content %}
+
+
+{% endblock %}

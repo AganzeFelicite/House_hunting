@@ -1,0 +1,34 @@
+
+
+{% extends 'house_hunting_app/base.html' %}
+
+
+{% block links %}
+<li><a href="{% url 'index' %}">About</a></li>
+<li><a href="#">Contact</a></li>
+{% endblock%}
+
+{% block logins %}
+
+<li><a href="{% url 'signup' %}">Sign up</a></li>
+<li><a href="{% url 'login' %}"><i class="fa fa-user-o" aria-hidden="true"></i> Log in</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="description">
+  <h2>Welcome to House Hunting System</h2>
+
+ 
+
+  <p>Find your dream home with ease</p>
+  <p>With our House Hunting System, you can search for houses based on your preferred location, price range, number of bedrooms, bathrooms, and property type.</p>
+  <p>Whether you are looking for a cozy apartment, a spacious house, or a stylish condo, our system will help you find the perfect match.</p>
+  <img src="image2.jpg" alt="Image 2">
+  <p>Start your house hunting journey today and discover the homes that meet your needs and preferences.</p>
+  <a href="{% url 'login' %}" class="btn btn-primary">Get Started</a>
+
+ 
+</div>
+
+
+{% endblock %}

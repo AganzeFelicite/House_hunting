@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import UserManager, AbstractBaseUser, PermissionsMixin
 from django.utils import timezone as timezone
-
+import uuid
  
 
 
@@ -10,9 +10,10 @@ class CustomUserManager(UserManager):
     def _create_user(self, email, password, **extra_fields):
         if not email:
             raise ValueError('Email is required')
-        
+        id = uuid.uuid4()
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
+        user.user_id = id
         user.set_password(password)
         user.save(using=self.db)
         return user 
@@ -20,11 +21,6 @@ class CustomUserManager(UserManager):
     def create_user(self, email, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
-        extra_fields.setdefault('name', "")
-        extra_fields.setdefault('first_name', "")
-        extra_fields.setdefault('last_name', "")
-        extra_fields.setdefault('phone_no', "")
-        extra_fields.setdefault('location_prefered', "")
         return self._create_user(email=email, password=password, **extra_fields) 
      
     def create_superuser(self, email, password=None, **extra_fields):
@@ -32,12 +28,9 @@ class CustomUserManager(UserManager):
         extra_fields.setdefault('is_superuser', True) 
         return self._create_user(email=email, password=password, **extra_fields)
     
-    def user_profile(self, name, first_name, last_name, phone_no, location_prefered):
-        
-        return self._create_user(name=name, first_name=first_name, last_name=last_name, phone_no=phone_no, location_prefered=location_prefered)
     
 class User(AbstractBaseUser, PermissionsMixin):
-    #user_id = models.AutoField(primary_key=True)
+    user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(blank=True, default="", unique=True)
     name = models.CharField(max_length=255, blank=True, default="")
     first_name = models.CharField(max_length=255, blank=True, default="")
@@ -49,6 +42,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     date_joined = models.DateTimeField( default=timezone.now)
     last_login = models.DateTimeField(null=True, blank=True)
+    houses = models.ManyToManyField('House', related_name='has', blank=True)
+    
+    def user_profile(self, name, first_name, last_name, phone_no, location_prefered):
+        self.name = name
+        self.first_name = first_name
+        self.last_name = last_name
+        self.phone_no = phone_no
+        self.location_prefered = location_prefered
+        self.save(using=self._db)
+        return self
+        
+       
     
     
     
@@ -67,3 +72,48 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     def get_short_name(self):
         return self.name 
+    
+    
+    
+
+class House(models.Model):
+    house_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    price = models.FloatField()
+    location = models.CharField(max_length=255)
+    description = models.TextField()
+    image1 = models.ImageField(upload_to='images/', blank=True, null=True)
+    image2 = models.ImageField(upload_to='images/', blank=True, null=True)
+    image3 = models.ImageField(upload_to='images/', blank=True, null=True)
+    status = models.CharField(max_length=255, default='available')
+    date_added = models.DateTimeField(default=timezone.now)
+    date_booked = models.DateTimeField(null=True, blank=True)
+    house_owner = models.ManyToManyField('User', related_name='has', blank=False)
+    
+    def __str__(self):
+        return self.location
+    
+    class Meta:
+        verbose_name = 'House'
+        verbose_name_plural = 'Houses'
+        
+    def update_status(self, status):
+        self.status = status
+        self.save(using=self._db)
+        return self
+    def update_date_booked(self, date_booked):
+        self.date_booked = date_booked
+        self.save(using=self._db)
+        return self
+    
+    def update_house(self, price, location, description, image1, image2, image3):
+        self.price = price
+        self.location = location
+        self.description = description
+        self.image1 = image1
+        self.image2 = image2
+        self.image3 = image3
+        self.save(using=self._db)
+        return self
+    
+    
+    

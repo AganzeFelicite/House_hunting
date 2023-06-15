@@ -1,0 +1,134 @@
+{% extends 'house_hunting_app/base.html' %}
+
+{% block links %}
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Category </a></li>
+
+
+{% endblock%}
+
+{% block logins %}
+<li>
+  <a><i class="fa fa-user-o" aria-hidden="true"></i>{{user.email}} </a>
+  
+</li>
+<li class="dropdown show">
+  <a class="dropdown-toggle text-light"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Account
+  </a>
+  <div class="dropdown-menu  col-md-10" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item p-3 row" href="#">Account Settings</a>
+    <a class="dropdown-item p-3 row " href="{% url 'logout' %}">Log Out</a>
+    <a class="dropdown-item p-3 row " href="#">Update Your info</a>
+    <a class="dropdown-item p-3 row " href="#">Delete Account</a>
+    <a class="dropdown-item p-3 row " href="#">Change Password</a>
+    <a class="dropdown-item p-3 row " href="#">Booked Houses</a>
+  </div>
+</li>
+
+
+
+
+
+          
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col text-center">
+      <h1 class="display-5 fw-bold mb-5"><span class="underline pb-1"><h4>"Home is where your search ends and your heart finds its place."</strong></h4></h1>
+      <input class="form-control mr-sm-2 mt-3" type="search" placeholder="Search" aria-label="Search">
+  </div>
+  
+</div>
+</div>
+
+<div class="row flex">
+  
+
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+      <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+      <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+      <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+      <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+
+  {% endfor %}
+
+  {% endfor %}
+
+  {% endfor %}
+
+
+  {% endfor %}
+
+  {% comment %} <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/VQYxQiiRky0">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/gJFvHkUHdSI">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/Bjw6dbIYtNE">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/C52dylsC1-g">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/wsMwDxF8SKA">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/sfze-8LfCXI">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/8oydDuX4AAM">
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6">
+    <div class="thumbnail">
+      <img src="https://source.unsplash.com/PN_c3RKCVlA">
+    </div>
+  </div>
+
+</div> {% endcomment %}
+
+</div> 
+{% endblock %}

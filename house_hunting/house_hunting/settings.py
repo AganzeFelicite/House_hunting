@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-3c1!d=f7h--b0l!g0s6_7^mne#wmkuuz9)7+0vg_u23+!gy7^v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -82,7 +83,15 @@ DATABASES = {
     }
 }
 
+MEDIA_URL = '/media/'
 
+# Specify the filesystem path where media files will be stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+if not os.path.exists(MEDIA_ROOT):
+    os.makedirs(MEDIA_ROOT)
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -118,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
 
 # Static files directories (for development)
 # STATICFILES_DIRS = [

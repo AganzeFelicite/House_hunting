@@ -2,6 +2,11 @@
 
 {% block title %}{{ title }}{% endblock %}
 
+{% block links %}
+<li><a href="{% url 'index' %}">About</a></li>
+<li><a href="#">Contact</a></li>
+{% endblock%}
+
 {% block content %}
 
 <section class="py-4 py-md-5 m-5">
