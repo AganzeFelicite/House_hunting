@@ -10,34 +10,29 @@
 {% block content %}
 
 <section class="py-4 py-md-5 m-5">
-    <div class="container py-md-5">
-        <div class="row">
+    <div class="container py-md-5 ">
+        <div class="row justify-content-center align-items-center">
             <div class="col-md-4 text-center">
-                <h1 class="display-5 fw-bold mb-5"><span class="underline pb-1"><h3>House Hunting</strong></h3></h1>
+                <h1 class="display-5 fw-bold mb-5"><span class="underline pb-1"><h3>House Hunting</h3></span></h1>
                 <p class="fs-4"></p>
-                <p class="fs-4">Welcome to our House Hunting App!  With our user-friendly interface and extensive database of available properties, finding the perfect place has never been easier.</p>
-
-<p class="fs-4">Sign in to your account to access personalized features.</p>
-
-
-
+                <p class="fs-4">Welcome to our House Hunting App! With our user-friendly interface and extensive database of available properties, finding the perfect place has never been easier.</p>
+                <p class="fs-4">Sign in to your account to access personalized features.</p>
             </div>
+
             <div class="col-md-6 col-xl-4 text-center text-md-start">
                 <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Login</strong></span></h2>
-                <form  method="post">
+                <form method="post">
                     {% csrf_token %}
                     <div class="m-5 form-group"><input class="shadow-sm form-control" type="email" name="email" placeholder="user email" /></div>
                     <div class="m-5 form-group"><input class="shadow-sm form-control" type="password" name="password" placeholder="Password" /></div>
                     {% comment %} <div class="m-5 form-group"><input class="shadow-sm form-control" type="password2" name="password_repeat" placeholder="Repeat Password" /></div> {% endcomment %}
                     <div class="m-5 form-group"><button class="btn btn-primary shadow" type="submit">Login</button></div>
-                    <p class="text-muted">Don't an account? <a href="login.html">Create one <svg class="icon icon-tabler icon-tabler-arrow-narrow-right" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                             
+                    <p class="text-muted">Don't have an account? <a href="login.html">Create one</a></p>
                 </form>
                 {% for message in messages %}
-                
-                <div class="alert alert-danger" role="alert">
-                    <strong>{{ message }}</strong>
-                </div>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{ message }}</strong>
+                    </div>
                 {% endfor %}
             </div>
         </div>

@@ -1,5 +1,6 @@
 {% extends 'house_hunting_app/base.html' %}
 
+
 {% block title %}{{ title }}{% endblock %}
 
 {% block links %}
@@ -18,7 +19,7 @@
             </div>
             <div class="col-md-6 col-xl-4 text-center text-md-start">
                 <h2 class="display-6 fw-bold mb-5"><span class="underline pb-1"><strong>Sign up</strong></span></h2>
-                <form method="post">
+                <form  method="post">
                     {% csrf_token %}
                     <div class="m-5 form-group"><input class="shadow-sm form-control" type="email" name="email" placeholder="user email" /></div>
                     <div class="m-5 form-group"><input class="shadow-sm form-control" type="password1" name="password" placeholder="Password" /></div>

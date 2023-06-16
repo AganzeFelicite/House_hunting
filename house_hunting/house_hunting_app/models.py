@@ -32,6 +32,7 @@ class CustomUserManager(UserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     user_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(blank=True, default="", unique=True)
+    
     name = models.CharField(max_length=255, blank=True, default="")
     first_name = models.CharField(max_length=255, blank=True, default="")
     last_name = models.CharField(max_length=255, blank=True, default="")
@@ -44,16 +45,19 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_login = models.DateTimeField(null=True, blank=True)
     houses = models.ManyToManyField('House', related_name='has', blank=True)
     
-    def user_profile(self, name, first_name, last_name, phone_no, location_prefered):
+    
+    
+    def update_User(self, name, first_name, last_name, phone_no, email):
+        self.email = email
         self.name = name
         self.first_name = first_name
         self.last_name = last_name
         self.phone_no = phone_no
-        self.location_prefered = location_prefered
-        self.save(using=self._db)
+        #self.location_prefered = location_prefered
+        self.save()
         return self
-        
-       
+    
+    
     
     
     

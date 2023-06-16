@@ -1,6 +1,6 @@
 {% load static %}
 <head>
-  <title>Bootsrap Image Gallery</title>
+  <title>{% block title %} {% endblock %} </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'house_hunting_app/css/signup.css' %}">
@@ -14,7 +14,117 @@
       font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
       font-size: 3vh;
     }
-
+  
+    .slides {
+        padding: 0;
+        width: 609px;
+        height: 420px;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .slides * {
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+    }
+    
+    .slides input { display: none; }
+    
+    .slide-container { display: block; }
+    
+    .slide {
+        top: 0;
+        opacity: 0;
+        width: 609px;
+        height: 420px;
+        display: block;
+        position: absolute;
+    
+        transform: scale(0);
+    
+        transition: all .7s ease-in-out;
+    }
+    
+    {% comment %} .slide img {
+        width: 100%;
+        height: 100%;
+    } {% endcomment %}
+    
+    .nav label {
+        width: 200px;
+        height: 100%;
+        display: none;
+        position: absolute;
+    
+        opacity: 0;
+        z-index: 9;
+        cursor: pointer;
+    
+        transition: opacity .2s;
+    
+        color: #FFF;
+        font-size: 156pt;
+        text-align: center;
+        line-height: 380px;
+        font-family: "Varela Round", sans-serif;
+        background-color: rgba(255, 255, 255, .3);
+        text-shadow: 0px 0px 15px rgb(119, 119, 119);
+    }
+    
+    .slide:hover + .nav label { opacity: 0.5; }
+    
+    .nav label:hover { opacity: 1; }
+    
+    .nav .next { right: 0; }
+    
+    input:checked + .slide-container  .slide {
+        opacity: 1;
+    
+        transform: scale(1);
+    
+        transition: opacity 1s ease-in-out;
+    }
+    
+    input:checked + .slide-container .nav label { display: block; }
+    
+    .nav-dots {
+      width: 100%;
+      bottom: 9px;
+      height: 11px;
+      display: block;
+      position: absolute;
+      text-align: center;
+    }
+    
+    .nav-dots .nav-dot {
+      top: -5px;
+      width: 11px;
+      height: 11px;
+      margin: 0 4px;
+      position: relative;
+      border-radius: 100%;
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .nav-dots .nav-dot:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    input#img-1:checked ~ .nav-dots label#img-dot-1,
+    input#img-2:checked ~ .nav-dots label#img-dot-2,
+    input#img-3:checked ~ .nav-dots label#img-dot-3,
+    input#img-4:checked ~ .nav-dots label#img-dot-4,
+    input#img-5:checked ~ .nav-dots label#img-dot-5,
+    input#img-6:checked ~ .nav-dots label#img-dot-6 {
+    
+    }
   </style>
 
   <!-- navbar start -->
@@ -22,7 +132,7 @@
     <div class="container">
       <div class="navbar-header">
         
-        <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>House Hunting</a>
+        <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>House Hunting</a>
       </div>
 
       <div class="collapse navbar-collapse" id="alberto">
@@ -35,6 +145,7 @@
         <ul class="nav navbar-nav navbar-right ">
           {% block logins %}
           
+          
           {% endblock %}
          
         </ul>
@@ -42,9 +153,9 @@
     </div>
   </nav>
 
- <div class="container">
+ <div class="container " >
     
-    <div class="jumbotron d-flex align-items-center justify-content-center" >
+    <div class="jumbotron d-flex align-items-center justify-content-center " >
     
 {% block content  %}
 

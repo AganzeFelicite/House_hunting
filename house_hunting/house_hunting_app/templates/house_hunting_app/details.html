@@ -1,0 +1,179 @@
+{% extends 'house_hunting_app/base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block links %}
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="javascript:history.back()">Go back</a></li>
+
+
+
+{% endblock%}
+ {% block logins %}
+
+ <li>
+    {% if user.is_authenticated %}
+      {% if user.name  %}
+      <a><i class="fa fa-user-o" aria-hidden="true"></i>{{user.name}} </a>
+          
+          {% else %}
+          <a><i class="fa fa-user-o" aria-hidden="true"></i>{{user.email}} </a>
+          {% endif %}
+          
+    {% else %}
+
+          
+    {% endif %}             
+  </li>
+
+<li class="dropdown show">
+  <a class="dropdown-toggle text-light"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Account
+  </a>
+  <div class="dropdown-menu  col-md-10" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item p-3 row" href="#">Account Settings</a>
+    <a class="dropdown-item p-3 row " href="{% url 'logout' %}">Log Out</a>
+    {% comment %} <a class="dropdown-item p-3 row " href="{% url 'profile' user.user_id %}">Update Your info</a> {% endcomment %}
+    <a class="dropdown-item p-3 row " href="#">Delete Account</a>
+    <a class="dropdown-item p-3 row " href="#">Change Password</a>
+    <a class="dropdown-item p-3 row " href="#">Booked Houses</a>
+  </div>
+</li>
+
+
+
+
+
+          
+{% endblock %} 
+
+
+{% block content %}
+</div>
+{% if house.status == 'available' %}
+<div class="alert alert-success" role="alert">
+  This house is available
+ 
+</div>
+
+{% else %}
+<div class="alert alert-danger" role="alert">
+  This house is not available
+  
+
+</div>
+{% endif %}
+
+
+
+
+<div class="row flex">
+  
+    <section class="py-4 py-md-5 m-5">
+        <div class="container py-md-5 ">
+            <div class="row justify-content-center align-items-center">
+             
+    
+                 <div class="col-md-8 col-xl-4 text-center text-md-start">
+                    <div class="col-lg-6 col-sm-6 ">
+                        <div class=" rounded ">
+                            <ul class="slides">
+                                <input type="radio" name="radio-btn" id="img-1" checked />
+                                <li class="slide-container">
+                                    <div class="slide">
+                                        <img src="{{ house.image1.url }}" />
+                                    </div>
+                                    <div class="nav">
+                                        <label for="img-6" class="prev">&#x2039;</label>
+                                        <label for="img-2" class="next">&#x203a;</label>
+                                    </div>
+                                </li>
+                            {% if house.image2.url is not None %} 
+                            <input type="radio" name="radio-btn" id="img-2" />
+                                <li class="slide-container">
+                                    <div class="slide">
+                                      <img src="{{ house.image2.url }}" />
+                                    </div>
+                                    <div class="nav">
+                                        <label for="img-1" class="prev">&#x2039;</label>
+                                        <label for="img-3" class="next">&#x203a;</label>
+                                    </div>
+                                </li>
+                            {% endif %}
+                                
+                            {% if house.image3.url is not None %}
+                            <input type="radio" name="radio-btn" id="img-3" />
+                            <li class="slide-container">
+                                <div class="slide">
+                                  <img src="{{house.image3.url}}" />
+                                </div>
+                                <div class="nav">
+                                    <label for="img-2" class="prev">&#x2039;</label>
+                                    <label for="img-4" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                        
+
+                            {% endif %}
+                              
+                                
+                            
+                                <li class="nav-dots">
+                                  <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                                  <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                                  <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+
+                                </li>
+                            </ul>
+  
+                        </div>
+                      </div>
+                
+                
+                
+            </div>
+            <div class="col-md-4 col-xl-4 text-center text-md-start">
+                <div>
+                    <strong>location: <i style="color: red;">{{house.location}}</i></strong>
+                </div>
+                
+                <div>
+                    <strong>price: <i>{{house.price}} $</i> </strong>
+
+                </div>
+            </div>
+            
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title">Owner of the Property</h5>
+     
+      email : <p class="card-text">{{ user.email}}</p>
+    <div>
+        Phone_number: <i>{{user.phone_no}} </i>
+    </div>
+    <div>
+        Loction : <i>{{user.location}} </i>
+   </div>
+   <a href="javascript:history.back()" type="button" class="btn btn-dark btn-lg">Go back and Browse More</a>
+    </div>
+  </div>
+
+                </div>
+               
+               
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <h1 class="display-5 fw-bold mb-5"><span class="underline pb-1"><h3>House Hunting</h3></span></h1>
+            <p class="fs-4"> {{house.description}}</p>
+
+        </div>
+    </section>
+    
+      
+ <p>
+
+
+ </p>
+</div> 
+{% endblock %}

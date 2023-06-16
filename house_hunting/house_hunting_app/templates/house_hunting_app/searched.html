@@ -60,24 +60,22 @@
 
 <div id="search-results" class="row flex">
   
-
-  {% for item in houses %}
-  <div class="col-lg-4 col-sm-6 ">
-    <div class="thumbnail rounded">
-     
-      <a href="{% url 'details' item.house_id  user.user_id %}">
-        <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
-      </a>
-     
-      <strong>location: {{item.location}} price: {{item.price}}</strong>
-    </div>
+{% for item in results %}
+<div class="col-lg-4 col-sm-6 ">
+  <div class="thumbnail rounded">
+   
+    <a href="{% url 'details' item.house_id  user.user_id %}">
+      <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+    </a>
+   
+    <strong>location: {{item.location}} price: {{item.price}}</strong>
   </div>
-  
+</div>
 
-  
-
-  {% endfor %}
-
+{% else %}
+  <div>No results found.</div>
+{% endfor %}
+ 
   {% comment %} <div class="col-lg-4 col-sm-6">
     <div class="thumbnail">
       <img src="https://source.unsplash.com/VQYxQiiRky0">

@@ -1,17 +1,45 @@
 
 
 {% extends 'house_hunting_app/base.html' %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% block links %}
+{% if user.is_authenticated %}
 <li><a href="{% url 'index' %}">About</a></li>
+{% if user.is_superuser %}
+<li><a href="{% url 'admins1' %}">Browse</a></li>
+<li><a href="{% url 'Account' user.user_id %}">Browse</a></li>
+{% else %}
+<li><a href="{% url 'Account' user.user_id %}">Browse</a></li>
+{% endif %}
+<li><a href="">Contact</a></li>
+{% else %}
+<li><a href="{% url 'index' %}">About</a></li>
+
 <li><a href="#">Contact</a></li>
+{% endif %}
 {% endblock%}
 
 {% block logins %}
+<li>
+  {% if user.is_authenticated %}
+    {% if user.name  %}
+    <a><i class="fa fa-user-o" aria-hidden="true"></i>{{user.name}} </a>
+    <li><a href="{% url 'logout' %}"><i class="fa fa-user-o" aria-hidden="true"></i> Log Out</a></li>
+        {% else %}
+        <a><i class="fa fa-user-o" aria-hidden="true"></i>{{user.email}} </a>
+        <li><a href="{% url 'logout' %}"><i class="fa fa-user-o" aria-hidden="true"></i> logout </a></li>
+        {% endif %}
 
-<li><a href="{% url 'signup' %}">Sign up</a></li>
+
+        
+  {% else %}
+  <li><a href="{% url 'signup' %}">Sign up</a></li>
 <li><a href="{% url 'login' %}"><i class="fa fa-user-o" aria-hidden="true"></i> Log in</a></li>
+  {% endif %}             
+</li>
+
 {% endblock %}
 
 {% block content %}
