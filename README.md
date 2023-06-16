@@ -28,7 +28,6 @@ python3 -m venv env
 	- for linux
 ```
 source env/bin/activate
-```
 	- for windows
 ```
 .\env\Scripts\activate
