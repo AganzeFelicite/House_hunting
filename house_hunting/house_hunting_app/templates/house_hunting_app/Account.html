@@ -2,9 +2,10 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block links %}
-<li><a href="#">About</a></li>
+<li><a href="{% url 'index' %}">About</a></li>
 <li><a href="#">Contact</a></li>
-<li><a href="#">Category </a></li>
+<li><a href="{% url 'Account' user.user_id %}">Browse</a></li>
+
 
 
 {% endblock%}
@@ -50,11 +51,16 @@
 
 {% block content %}
 <div class="row">
-  <div class="col text-center">
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="col text-center">
       <h1 class="display-5 fw-bold mb-5"><span class="underline pb-1"><h4>"Home is where your search ends and your heart finds its place."</strong></h4></h1>
       <input class="form-control mr-sm-2 mt-3" type="text" name="q" placeholder="Search..." autocomplete="off" aria-label="Search">
   </div>
-  
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+ 
 </div>
 </div>
 
@@ -124,22 +130,5 @@
 </div> 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('input[name="q"]').on('keyup', function() {
-            var query = $(this).val();
-            if (query.length >= 2) {
-                $.ajax({
-                    url: "{% url 'search' %}",
-                    data: { q: query },
-                    success: function(data) {
-                        $('#search-results').html(data);
-                    }
-                });
-            } else {
-                $('#search-results').empty();
-            }
-        });
-    });
-</script>
+
 {% endblock %}

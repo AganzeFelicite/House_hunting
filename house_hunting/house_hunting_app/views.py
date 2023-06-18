@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-
+from django.db.models import Q
 from . models import User, House
 from django.contrib.auth import authenticate, login, logout
 
@@ -46,16 +46,30 @@ def signup(request):
 
 
 def Account(request, pk=None):
+    
+        
     if pk is None:
         user_id = request.GET.get('user_id')
         user = User.object.get(user_id=user_id)
         user.user_id = user_id
-        houses = House.objects.all()
+        houses = House.objects.filter(status='available')
+
         return render(request, 'house_hunting_app/Account.html', {'user': user, 'houses': houses, 'title': 'Account'})
     
     user = User.object.get(user_id=pk)
     user.user_id = pk
-    houses = House.objects.all()
+    houses = House.objects.filter(status='available')
+
+    if request.method == 'POST':
+        query = request.POST['q']
+        houses = House.objects.filter(
+            Q(house_id__icontains=query) |
+            Q(price__icontains=query) |
+            Q(location__icontains=query) |
+            Q(description__icontains=query) |
+            Q(status__icontains=query),
+            status='available'
+        )
     return render(request, 'house_hunting_app/Account.html', {'user': user, 'houses': houses, 'title': 'Account'})
 
 
