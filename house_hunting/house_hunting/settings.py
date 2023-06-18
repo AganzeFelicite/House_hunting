@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3c1!d=f7h--b0l!g0s6_7^mne#wmkuuz9)7+0vg_u23+!gy7^v
 DEBUG = True
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -253,6 +253,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
