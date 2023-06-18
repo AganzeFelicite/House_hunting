@@ -271,11 +271,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static'
 
 # Define the directory where static files will be collected.
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Specify the directories where Django should look for static files.

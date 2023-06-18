@@ -13,6 +13,7 @@ local_settings.py
 
 # Static files
 
+<<<<<<< HEAD
 
 
 # Database files
@@ -60,6 +61,8 @@ local_settings.py
 # Static files
 
 
+=======
+>>>>>>> bfe3e4f7e258d5e603de43d5d9757b08dcb15dbb
 
 # Database files
 *.db
