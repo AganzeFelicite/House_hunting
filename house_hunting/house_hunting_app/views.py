@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from . models import User, House
 from django.contrib.auth import authenticate, login, logout
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 
 # Create your views here.
@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_protect
 def index(request):
     return render(request, 'house_hunting_app/index.html', {'title': 'Home'})
 
-@csrf_protect
+@csrf_exempt
 def login(request):
     if request.method == 'POST':
         user_email = request.POST['email']
@@ -32,7 +32,7 @@ def login(request):
     return render(request, 'house_hunting_app/login.html', {'title': 'Login'})
     
     
-
+@csrf_exempt
 def signup(request):
     if request.method == 'POST':
         user_email = request.POST['email']
@@ -45,7 +45,7 @@ def signup(request):
 
 
 
-
+@csrf_exempt
 def Account(request, pk=None):
     
         
@@ -73,12 +73,12 @@ def Account(request, pk=None):
         )
     return render(request, 'house_hunting_app/Account.html', {'user': user, 'houses': houses, 'title': 'Account'})
 
-
+@csrf_exempt
 def logout(request):
     auth.logout(request)
     return redirect('index')
 
-
+@csrf_exempt
 def profile(request, pk):
     user = User.object.get(user_id=pk)
     if request.method == 'POST':
