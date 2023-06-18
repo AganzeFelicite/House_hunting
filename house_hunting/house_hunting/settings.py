@@ -293,7 +293,7 @@ STATIC_URL = '/static/'
 
 # Static files directories (for development)
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
 
