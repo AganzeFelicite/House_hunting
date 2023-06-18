@@ -79,7 +79,68 @@
     </div>
   </div>
   
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+     
+      <a href="{% url 'details' item.house_id  user.user_id %}">
+        <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      </a>
+     
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  
 
+  
+
+  {% endfor %}
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+     
+      <a href="{% url 'details' item.house_id  user.user_id %}">
+        <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      </a>
+     
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  
+
+  
+
+  {% endfor %}
+
+  {% endfor %}
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+     
+      <a href="{% url 'details' item.house_id  user.user_id %}">
+        <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      </a>
+     
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  
+  {% for item in houses %}
+  <div class="col-lg-4 col-sm-6 ">
+    <div class="thumbnail rounded">
+     
+      <a href="{% url 'details' item.house_id  user.user_id %}">
+        <img src="{{ item.image1.url }}" class = "rounded"alt="item.image1">
+      </a>
+     
+      <strong>location: {{item.location}} price: {{item.price}}</strong>
+    </div>
+  </div>
+  
+
+  
+
+  {% endfor %}
   
 
   {% endfor %}
