@@ -174,7 +174,7 @@ JAZZMIN_SETTINGS = {
     # Change view #
     ###############
     # Render out the change view as a single form, or in tabs, current options are
-    # - single
+    # - singleg
     # - horizontal_tabs (default)
     # - vertical_tabs
     # - collapsible
@@ -200,7 +200,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'house_hunting.urls'
-CSRF_TRUSTED_ORIGINS = ['https://praktikum6.jhoncena.repl.co']
+CSRF_TRUSTED_ORIGINS = ['househunting-production.up.railway.app']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -240,7 +240,7 @@ DATABASES = {
     }
 }
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/images/'
 
 # Specify the filesystem path where media files will be stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
