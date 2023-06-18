@@ -200,7 +200,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'house_hunting.urls'
-CSRF_TRUSTED_ORIGINS = ['househunting-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://househunting-production.up.railway.app/']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -240,7 +240,7 @@ DATABASES = {
     }
 }
 
-MEDIA_URL = 'media/images/'
+MEDIA_URL = '/media/'
 
 # Specify the filesystem path where media files will be stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -249,6 +249,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
+if not os.path.exists(os.path.join(MEDIA_ROOT, '/media/images')):
+    os.makedirs(os.path.join(MEDIA_ROOT, '/media/images'))
+        
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -272,13 +275,13 @@ STATIC_URL = '/static/'
 
 # Define the directory where static files will be collected.
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Specify the directories where Django should look for static files.
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'house_hunting_app/static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
