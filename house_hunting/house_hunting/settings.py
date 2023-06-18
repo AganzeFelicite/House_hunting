@@ -288,12 +288,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'house_hunting_app/static/'
+STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Static files directories (for development)
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'house_hunting_app/static/'),
+    os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
 
