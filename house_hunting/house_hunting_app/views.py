@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.db.models import Q
 from . models import User, House
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_protect
 
 
 # Create your views here.
@@ -11,7 +12,7 @@ from django.contrib.auth import authenticate, login, logout
 def index(request):
     return render(request, 'house_hunting_app/index.html', {'title': 'Home'})
 
-
+@csrf_protect
 def login(request):
     if request.method == 'POST':
         user_email = request.POST['email']
