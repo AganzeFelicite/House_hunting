@@ -28,17 +28,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = [
-    'https://househunting-production.up.railway.app',
-    # Other allowed origins
-]
+
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'jazzmin',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'house_hunting_app',
@@ -199,6 +196,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'house_hunting.urls'
@@ -220,7 +218,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'house_hunting.wsgi.application'
-
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    'https://househunting-production.up.railway.app',
+    # Other allowed origins
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
