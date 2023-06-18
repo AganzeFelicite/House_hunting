@@ -9,11 +9,10 @@ local_settings.py
 .secret_key
 
 # Media files
-media/
+
 
 # Static files
-staticfiles/
-/static/
+
 
 # Database files
 *.db
