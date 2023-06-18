@@ -240,7 +240,7 @@ DATABASES = {
     }
 }
 
-MEDIA_URL = '/images/'
+MEDIA_URL = 'media/images/'
 
 # Specify the filesystem path where media files will be stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
