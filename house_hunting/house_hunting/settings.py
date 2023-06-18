@@ -174,7 +174,7 @@ JAZZMIN_SETTINGS = {
     # Change view #
     ###############
     # Render out the change view as a single form, or in tabs, current options are
-    # - singleg
+    # - single
     # - horizontal_tabs (default)
     # - vertical_tabs
     # - collapsible
@@ -200,7 +200,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'house_hunting.urls'
-CSRF_TRUSTED_ORIGINS = ['https://househunting-production.up.railway.app/']
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -249,9 +249,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 if not os.path.exists(MEDIA_ROOT):
     os.makedirs(MEDIA_ROOT)
-if not os.path.exists(os.path.join(MEDIA_ROOT, '/media/images')):
-    os.makedirs(os.path.join(MEDIA_ROOT, '/media/images'))
-        
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -270,18 +267,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = 'static'
-
-# Define the directory where static files will be collected.
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-
-# Specify the directories where Django should look for static files.
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, "static"),
 ]
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -297,7 +288,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATIC_URL = '/static/'
 
+
+# Static files directories (for development)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles'),
+]
 
 
 # Default primary key field type
