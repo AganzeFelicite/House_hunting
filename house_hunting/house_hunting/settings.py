@@ -267,8 +267,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATIC_URL = '/static/'
+
+# Define the directory where static files will be collected.
+
+
+# Specify the directories where Django should look for static files.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -285,13 +294,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
 
-
-# Static files directories (for development)
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
-]
 
 
 # Default primary key field type
