@@ -45,7 +45,7 @@ def signup(request):
 
 
 
-@csrf_exempt
+
 def Account(request, pk=None):
     
         
