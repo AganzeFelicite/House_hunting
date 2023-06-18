@@ -200,7 +200,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'house_hunting.urls'
-
+CSRF_TRUSTED_ORIGINS = ['https://househunting-production.up.railway.app']
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
