@@ -20,7 +20,6 @@ Most importantly the site helps someone looking for house , with contact of the 
 3. Admin is able to Manage all activities go on the site
 4. The user has the ability to update his info,delete accout, 
 5. Acoount Management /session management of users
-- [Screenshots](#screenshots)
 
 ## Installation
 
@@ -81,14 +80,15 @@ Once loged in you will be presented with a friendly interface where u can do the
 
 
 ## Contributing
-## Some images
-![This is an illustration of the admin dashboard where he can manages houses and the whole site](/admin1.png)
 
-(/admin2.png)
-![alt text](https://github.com/AganzeFelicite/House_hunting/blob/main/admin1.png)
+- [Screenshots](#screenshots)
+- ![This is an illustration of the admin dashboard where he can manages houses and the whole site]
+- (https://github.com/AganzeFelicite/House_hunting/blob/main/admin1.png?raw=true)
+- (https://github.com/AganzeFelicite/House_hunting/blob/main/amin2.png?raw=true)
+
 
 ![this is the View for the user Once logged in looking for house in the site]
-(/image.png)
+(https://github.com/AganzeFelicite/House_hunting/blob/main/userAccount.png?raw=true)
 
 
 
