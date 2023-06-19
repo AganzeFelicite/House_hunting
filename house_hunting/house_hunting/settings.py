@@ -233,6 +233,12 @@ DATABASES = {
     }
 }
 
+MEDIA_URL = 'images/'
+
+# Specify the filesystem path where media files will be stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
