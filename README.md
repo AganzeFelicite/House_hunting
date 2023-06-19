@@ -81,6 +81,17 @@ Once loged in you will be presented with a friendly interface where u can do the
 
 
 ## Contributing
+## Some images
+![This is an illustration of the admin dashboard where he can manages houses and the whole site](admin1.png)
+
+(admin2.png)
+
+
+![this is the View for the user Once logged in looking for house in the site]
+(image.png)
+
+
+
 AganzeFelicite 
 
 ## License
