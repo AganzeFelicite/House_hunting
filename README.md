@@ -81,14 +81,11 @@ Once loged in you will be presented with a friendly interface where u can do the
 
 ## Contributing
 
-- [Screenshots](#screenshots)
-- ![This is an illustration of the admin dashboard where he can manages houses and the whole site]
-- (https://github.com/AganzeFelicite/House_hunting/blob/main/admin1.png?raw=true)
-- (https://github.com/AganzeFelicite/House_hunting/blob/main/amin2.png?raw=true)
+![This is an illustration of the admin dashboard where he can manages houses and the whole site](https://github.com/AganzeFelicite/House_hunting/blob/main/admin1.png?raw=true)
+![Screen Shots](https://github.com/AganzeFelicite/House_hunting/blob/main/amin2.png?raw=true)
 
 
-![this is the View for the user Once logged in looking for house in the site]
-(https://github.com/AganzeFelicite/House_hunting/blob/main/userAccount.png?raw=true)
+![this is the View for the user Once logged in looking for house in the site](https://github.com/AganzeFelicite/House_hunting/blob/main/userAccount.png?raw=true)
 
 
 
