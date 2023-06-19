@@ -82,13 +82,13 @@ Once loged in you will be presented with a friendly interface where u can do the
 
 ## Contributing
 ## Some images
-![This is an illustration of the admin dashboard where he can manages houses and the whole site](admin1.png)
+![This is an illustration of the admin dashboard where he can manages houses and the whole site](/admin1.png)
 
-(admin2.png)
-
+(/admin2.png)
+![alt text](https://github.com/AganzeFelicite/House_hunting/blob/main/admin1.png)
 
 ![this is the View for the user Once logged in looking for house in the site]
-(image.png)
+(/image.png)
 
 
 
