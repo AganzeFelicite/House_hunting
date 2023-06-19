@@ -54,13 +54,15 @@ def Account(request, pk=None):
         user = User.object.get(user_id=user_id)
         user.user_id = user_id
         houses = House.objects.filter(status='available')
-
+        for i in houses:
+            print(i.image1.url)
         return render(request, 'house_hunting_app/Account.html', {'user': user, 'houses': houses, 'title': 'Account'})
     
     user = User.object.get(user_id=pk)
     user.user_id = pk
     houses = House.objects.filter(status='available')
-
+    for i in houses:
+        print(i.image1.url)
     if request.method == 'POST':
         query = request.POST['q']
         houses = House.objects.filter(
