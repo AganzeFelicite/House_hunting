@@ -1,6 +1,8 @@
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -222,12 +224,13 @@ CORS_ORIGIN_WHITELIST = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'SGHKJH4RIXmXHdUAAYK2',
-        'HOST': 'containers-us-west-107.railway.app',
-        'PORT': '7658',
+        'ENGINE': os.environ.get('ENGINE'),
+        'NAME':os.environ.get('NAME_db'),
+        'USER': os.environ.get('USER_db'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
+        
         
         
     }
